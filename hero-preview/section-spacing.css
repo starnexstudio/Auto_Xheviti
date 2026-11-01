@@ -1,0 +1,54 @@
+/* Shared outer rhythm; component spacing stays with each section. */
+:root {
+  --hx-section-space: 48px;
+  --hx-hero-gap: 8px;
+  --hx-content-max: 1600px;
+  --hx-content-gutter: clamp(32px, 8vw, 160px);
+  --hx-content-inset: max(var(--hx-content-gutter), calc((100vw - var(--hx-content-max)) / 2));
+}
+
+/* One pair of content edges throughout the page. The album keeps its wider,
+   overflowing photo composition and its original corner-note alignment. */
+.hx-nav,
+.hx-services,
+.hx-about,
+.hx-tint,
+.hx-faq,
+.hx-contact,
+.hx-footer { padding-inline: var(--hx-content-inset); }
+
+.hx-services__inner,
+.hx-about__track,
+.hx-tint__inner,
+.hx-faq__inner,
+.hx-contact__inner,
+.hx-footer__inner { width: 100%; max-width: none; margin-inline: 0; }
+
+.hx-services,
+.hx-album,
+.hx-about,
+.hx-tint,
+.hx-faq,
+.hx-contact { padding-block: var(--hx-section-space); }
+
+.hx-pin + .hx-services,
+.hx-pin + .hx-about { padding-top: var(--hx-hero-gap); }
+
+/* Fit the desktop hero to its composition instead of leaving empty viewport
+   space underneath it on taller screens. Keep the full car departure range. */
+@media (min-width: 768px) {
+  .hx-transition-live .hx-sticky { height: min(100svh, 62.5vw); }
+  .hx-transition-live .hx-pin { height: calc(min(100svh, 62.5vw) + 91.2svh); }
+  .hx-copy { left: calc((100% - var(--hx-viewport-width, 100vw)) / 2 + var(--hx-content-inset)); }
+}
+
+/* The album retains its wider top corner notes. */
+@media (min-width: 1024px) {
+  .hx-album__corner--tl,
+  .hx-album__corner--tr { top: var(--hx-section-space); }
+}
+
+@media (max-width: 767px) {
+  :root { --hx-section-space: 40px; --hx-hero-gap: 16px; --hx-content-gutter: 20px; }
+  .hx-transition-live .hx-pin { height: calc(var(--u) * 740 + 91.2svh); }
+}

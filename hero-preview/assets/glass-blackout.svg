@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1462" height="468" viewBox="0 0 1462 468">
+  <!-- Blackout area on car-silver-occupants.webp's native grid (including its transparent padding), traced from the
+       approved blackout reference and identical to the Figma "Blackout" vectors (component units × 1462/1100).
+       side: all side glass as one surface, including the B-pillar and the rear-quarter divider; it stops at the
+       outer chrome, roof and beltline, and leaves the mirror cap, indicator band and stem uncovered.
+       windshield: the visible windshield band beside the A-pillar, from the roof-rail end to the cowl. -->
+  <g fill="white">
+    <path id="side" d="M303.33 108.44 L304.99 113.64 L310.36 121.24 L320.01 132.44 L324.43 136.11 L334.55 138.00 L361.21 140.10 L365.31 142.01 L368.49 140.75 L400.80 142.44 L463.02 144.86 L656.49 150.53 L661.74 151.02 L664.98 152.21 L669.41 150.93 L892.79 159.34 L907.73 159.38 L1005.87 162.87 L1006.79 162.07 L1005.46 160.34 L992.46 150.03 L964.87 130.90 L963.98 131.82 L967.56 138.17 L970.17 146.57 L969.08 151.37 L966.65 154.09 L941.59 152.93 L933.10 151.38 L912.13 150.57 L911.04 149.35 L910.55 146.16 L910.91 141.76 L912.90 132.56 L914.08 129.36 L915.57 127.35 L919.96 123.69 L927.60 119.76 L934.06 118.57 L942.94 119.96 L944.55 118.93 L944.07 117.24 L918.97 101.52 L886.92 82.87 L857.72 67.64 L835.43 57.90 L809.92 48.92 L790.49 43.89 L758.14 38.20 L729.84 34.94 L683.39 32.11 L644.62 31.67 L640.57 30.49 L633.71 31.67 L586.08 32.50 L538.44 35.71 L497.70 40.55 L469.87 44.94 L444.08 50.21 L415.86 57.35 L411.86 56.94 L408.62 59.22 L379.61 68.71 L361.50 75.40 L332.92 87.35 L313.61 97.17 L305.20 102.83 L304.14 104.44 Z"/>
+    <path id="windshield" d="M851.16 36.64 L851.07 42.53 L851.93 44.18 L882.29 59.05 L916.77 77.91 L1024.30 142.68 L1028.76 144.58 L1039.28 147.44 L1055.05 150.09 L1071.61 150.17 L1073.65 149.28 L1073.09 147.09 L1071.58 145.88 L1064.72 148.15 L1057.42 144.66 L952.33 82.72 L921.51 66.06 L861.92 37.44 L855.85 37.08 L852.24 36.02 Z"/>
+  </g>
+</svg>

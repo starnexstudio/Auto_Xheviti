@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://autoxheviti.com/sitemap.xml
+Sitemap: https://www.autoxheviti.com/sitemap.xml

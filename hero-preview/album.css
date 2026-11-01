@@ -1,0 +1,156 @@
+/* "Punimet tona" photo album. Slide transforms (including the photo entrance) are written by album.js
+   from one continuous position; this file sizes the stage and styles the static parts. */
+.hx-album {
+  --hx-album-red: #E3010C;
+  --card-w: min(28.5vw, 480px, calc((100svh - 330px) * 4 / 3));
+  position: relative;
+  padding: 104px 0 96px;
+  background: var(--hx-paper);
+  overflow-x: clip;                       /* side photos may extend past the viewport edge; the page never scrolls sideways */
+  scroll-margin-top: var(--hx-nav-h);
+}
+
+.hx-album__header { display: flex; flex-direction: column; align-items: center; gap: 10px; padding-inline: var(--hx-pad); text-align: center; }
+.hx-album__eyebrow { margin: 0; color: var(--hx-album-red); font-size: 12px; font-weight: 600; line-height: 16px; letter-spacing: .16em; }
+.hx-album__title { margin: 0; font-size: 48px; font-weight: 600; line-height: 1.05; letter-spacing: -.025em; }
+.hx-album__title span { color: var(--hx-album-red); }
+
+/* Corner notes: pinned to the section's corners on wide screens */
+.hx-album__corner {
+  position: absolute;
+  display: flex; flex-direction: column; gap: 6px;
+  max-width: 250px;
+  font-size: 14px; font-weight: 500; line-height: 20px; color: var(--hx-ink);
+}
+.hx-album__corner--tl { top: 56px; left: var(--hx-pad); }
+.hx-album__corner--tr { top: 56px; right: var(--hx-pad); text-align: right; align-items: flex-end; }
+.hx-album__corner--bl { bottom: 48px; left: var(--hx-pad); }
+.hx-album__corner--br { bottom: 48px; right: var(--hx-pad); text-align: right; align-items: flex-end; }
+.hx-album__corner-label {
+  display: flex; align-items: center; gap: 10px;
+  color: var(--hx-muted); font-size: 11px; font-weight: 600; line-height: 16px; letter-spacing: .14em; text-transform: uppercase;
+}
+.hx-album__corner--tl .hx-album__corner-label::before,
+.hx-album__corner--bl .hx-album__corner-label::before { content: ''; width: 20px; height: 2px; background: var(--hx-album-red); }
+.hx-album__corner--tr .hx-album__corner-label::after,
+.hx-album__corner--br .hx-album__corner-label::after { content: ''; width: 20px; height: 2px; background: var(--hx-album-red); }
+.hx-album__corner-link { display: inline-flex; align-items: center; gap: 6px; font-size: 16px; font-weight: 600; }
+.hx-album__corner-link svg { color: var(--hx-album-red); transition: transform .25s ease; }
+a.hx-album__corner:is(:hover, :focus-visible) .hx-album__corner-link svg { transform: translate(2px, -2px); }
+a.hx-album__corner:focus-visible { outline: 2px solid var(--hx-album-red); outline-offset: 4px; }
+
+/* Stage: a perspective box exactly one card tall; slides are absolutely centred inside it */
+.hx-album__viewport {
+  position: relative;
+  height: calc(var(--card-w) * .75);
+  margin: 48px auto 0;
+  perspective: 2400px;
+  perspective-origin: 50% 50%;
+  touch-action: pan-y;                     /* vertical swipes still scroll the page; horizontal ones drive the album */
+  user-select: none;
+  -webkit-user-select: none;
+  cursor: grab;
+  outline: none;
+}
+.hx-album__viewport.is-dragging { cursor: grabbing; }
+.hx-album__viewport:focus-visible { outline: none; }
+.hx-album__viewport:focus-visible + .hx-album__meta .hx-album__hint {
+  color: var(--hx-ink); text-decoration: underline; text-underline-offset: 4px;
+}
+.hx-album__viewport:focus-visible + .hx-album__meta .hx-album__hint::after { content: ' ← →'; }
+
+.hx-album__track { position: absolute; inset: 0; margin: 0; padding: 0; list-style: none; transform-style: preserve-3d; }
+.hx-album__slide {
+  position: absolute;
+  top: 0;
+  left: calc(50% - var(--card-w) / 2);
+  width: var(--card-w);
+  aspect-ratio: 4 / 3;
+  border-radius: 6px;
+  overflow: hidden;
+  background: var(--hx-hairline);
+  box-shadow: 0 28px 44px -24px rgba(11, 12, 14, .45), 0 2px 6px rgba(11, 12, 14, .08);
+  transform-origin: 50% 50%;
+  backface-visibility: hidden;
+  will-change: transform, opacity;
+}
+.hx-album__slide img {
+  display: block; width: 100%; height: 100%;
+  object-fit: cover; object-position: var(--pos, 50% 50%);   /* crop, never stretch */
+  pointer-events: none;
+}
+
+/* Caption, controls, hint */
+.hx-album__meta { display: flex; flex-direction: column; align-items: center; gap: 18px; margin-top: 40px; padding-inline: var(--hx-pad); }
+.hx-album__caption { margin: 0; min-height: 30px; font-size: 22px; font-weight: 600; line-height: 30px; letter-spacing: -.01em; text-align: center; transition: opacity .22s ease, transform .22s ease; }
+.hx-album__caption.is-swapping { opacity: 0; transform: translateY(6px); }
+
+.hx-album__controls { display: flex; align-items: center; gap: 24px; }
+.hx-album__arrow {
+  display: grid; place-items: center; width: 44px; height: 44px; padding: 0;
+  border: 1px solid var(--hx-hairline); border-radius: 50%; background: #fff; color: var(--hx-ink);
+  box-shadow: 0 2px 8px rgba(11, 12, 14, .08); cursor: pointer;
+  transition: border-color .2s ease, transform .2s ease;
+}
+.hx-album__arrow:hover { border-color: var(--hx-ink); }
+.hx-album__arrow:active { transform: scale(.94); }
+.hx-album__dots { display: flex; align-items: center; gap: 4px; }
+.hx-album__dot { position: relative; width: 26px; height: 24px; padding: 0; border: 0; background: none; cursor: pointer; }
+.hx-album__dot::before { content: ''; position: absolute; left: 0; right: 0; top: 50%; height: 3px; margin-top: -1.5px; border-radius: 2px; background: var(--hx-hairline); transition: background .25s ease; }
+.hx-album__dot[aria-current="true"]::before { background: var(--hx-album-red); }
+.hx-album__hint { margin: 0; color: var(--hx-muted); font-size: 13px; font-weight: 500; }
+
+.hx-album :is(.hx-album__arrow, .hx-album__dot):focus-visible { outline: 2px solid var(--hx-ink); outline-offset: 3px; }
+
+/* Entrance (text): staggered rise when the section first comes into view. The photos fan out
+   from the centre in album.js on the same trigger. */
+.hx-album__eyebrow, .hx-album__title, .hx-album__corner, .hx-album__meta {
+  transition: opacity .8s cubic-bezier(.16, 1, .3, 1), transform .8s cubic-bezier(.16, 1, .3, 1);
+}
+.hx-album.is-pending :is(.hx-album__eyebrow, .hx-album__title, .hx-album__corner, .hx-album__meta) { opacity: 0; transform: translateY(22px); }
+.hx-album.is-pending :is(.hx-album__corner--tl, .hx-album__corner--bl) { transform: translateX(-18px); }
+.hx-album.is-pending :is(.hx-album__corner--tr, .hx-album__corner--br) { transform: translateX(18px); }
+.hx-album__title { transition-delay: .08s; }
+.hx-album__corner--tl, .hx-album__corner--tr { transition-delay: .3s; }
+.hx-album__meta { transition-delay: .62s; }
+.hx-album__corner--bl, .hx-album__corner--br { transition-delay: .74s; }
+
+/* Below 1024px the corners leave the corners and sit in two rows: above the heading and below the controls */
+@media (max-width: 1023px) {
+  .hx-album { display: grid; grid-template-columns: 1fr 1fr; column-gap: 20px; padding-top: 48px; }
+  .hx-album > :not(.hx-album__corner) { grid-column: 1 / -1; }
+  .hx-album__corner { position: static; max-width: none; }
+  .hx-album__corner--tl, .hx-album__corner--bl { padding-left: var(--hx-pad); }
+  .hx-album__corner--tr, .hx-album__corner--br { padding-right: var(--hx-pad); }
+  .hx-album__header { margin-top: 48px; }
+  .hx-album__corner--bl, .hx-album__corner--br { margin-top: 48px; }
+}
+
+/* Tablet */
+@media (min-width: 768px) and (max-width: 1199px) {
+  .hx-album { --card-w: min(28.5vw, 340px); }
+  .hx-album__title { font-size: 42px; }
+}
+
+/* Mobile: one large photo with a partly visible neighbour on each side */
+@media (max-width: 767px) {
+  .hx-album { --card-w: min(70vw, 330px); padding-top: 40px; padding-bottom: 56px; column-gap: 12px; }
+  .hx-album__title { font-size: 34px; }
+  .hx-album__header { margin-top: 36px; }
+  .hx-album__corner { font-size: 13px; line-height: 18px; }
+  .hx-album__corner-link { font-size: 15px; }
+  .hx-album__corner--bl, .hx-album__corner--br { margin-top: 36px; }
+  .hx-album__viewport { margin-top: 32px; perspective: 900px; }
+  .hx-album__meta { gap: 14px; margin-top: 28px; }
+  .hx-album__caption { font-size: 18px; line-height: 26px; }
+  .hx-album__controls { gap: 14px; }
+  .hx-album__dots { gap: 2px; }
+  .hx-album__dot { width: 18px; }                 /* ten dashes plus arrows fit a 360px screen */
+  .hx-album__dot::before { left: 2px; right: 2px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hx-album__viewport { perspective: none; }
+  .hx-album__eyebrow, .hx-album__title, .hx-album__corner, .hx-album__meta, .hx-album__caption { transition: none; }
+  .hx-album.is-pending :is(.hx-album__eyebrow, .hx-album__title, .hx-album__corner, .hx-album__meta) { opacity: 1; transform: none; }
+}
