@@ -35,14 +35,26 @@
  function mapClick(){setMap(!map.classList.contains('is-active'));}
  function outside(event){if(!map.contains(event.target))setMap(false);}
  function escape(event){if(event.key==='Escape'&&map.classList.contains('is-active')){setMap(false);toggle.focus();}}
- function backTop(event){const top=document.getElementById('hxPin');if(!top)return;event.preventDefault();setMap(false);top.scrollIntoView({behavior:reduced.matches?'instant':'smooth',block:'start'});history.replaceState(null,'','#hxPin');const logo=document.querySelector('.hx-nav__logo');logo?.focus({preventScroll:true});}
+ function backTop(event){
+  if(event.defaultPrevented||event.button!==0||event.metaKey||event.ctrlKey||event.shiftKey||event.altKey)return;
+  const top=document.getElementById('hxPin');if(!top)return;
+  event.preventDefault();setMap(false);
+  const menuButton=document.getElementById('hxMenuBtn');
+  if(menuButton?.getAttribute('aria-expanded')==='true')menuButton.click();
+  const link=event.currentTarget,url=new URL(link.href),clean=url.pathname+location.search;
+  const footerReturn=link.hasAttribute('data-back-top');
+  if(location.pathname+location.search+location.hash!==clean)history[footerReturn?'replaceState':'pushState'](history.state,'',clean);
+  top.scrollIntoView({behavior:footerReturn&&!reduced.matches?'smooth':'instant',block:'start'});
+  document.querySelector('.hx-nav__logo')?.focus({preventScroll:true});
+ }
  function motionChange(){if(reduced.matches)reveal(true);}
  form.noValidate=true;
  submit.disabled=false;
  form.addEventListener('submit',onSubmit);form.addEventListener('input',onEdit);form.addEventListener('change',onEdit);
  section.addEventListener('focusin',revealOnFocus);
  toggle.hidden=false;toggle.addEventListener('click',mapClick);document.addEventListener('pointerdown',outside);document.addEventListener('keydown',escape);
- const back=document.querySelector('[data-back-top]');back?.addEventListener('click',backTop);
+ document.querySelectorAll('[data-home]').forEach(link=>link.addEventListener('click',backTop));
+ if(location.hash==='#hxPin'||location.hash==='#home')history.replaceState(history.state,'',location.pathname+location.search);
  const year=document.querySelector('[data-copyright-year]');if(year)year.textContent=new Date().getFullYear();
  // An iframe can load a provider error document. Keep a normal directions link visible regardless.
  iframe.addEventListener('error',()=>{section.querySelector('[data-map-fallback]').hidden=false;});
