@@ -43,6 +43,6 @@
  function cleanup(event){if(event.persisted)return;disposed=true;observer?.disconnect();cancelAnimationFrame(frame);textAnimation?.cancel();section.removeEventListener('change',change);section.removeEventListener('focusin',instantReveal);section.removeEventListener('pointerdown',instantReveal);reduced.removeEventListener('change',motionChange);window.removeEventListener('pagehide',cleanup);}
  setTransmission(current);section.dataset.tintCalibrated='';section.dataset.selectedVlt=String(current*100);
  section.addEventListener('change',change);section.addEventListener('focusin',instantReveal);section.addEventListener('pointerdown',instantReveal);reduced.addEventListener('change',motionChange);window.addEventListener('pagehide',cleanup);
- const image=new Image();image.src=new URL('assets/car-silver-occupants-seat-fixed.webp',document.currentScript.src).href;
+ const image=new Image();image.src=new URL('assets/car-silver-occupants-optimized.webp',document.currentScript.src).href;
  Promise.all([image.decode().catch(()=>{}),document.fonts.ready]).then(()=>{if(disposed)return;if(reduced.matches||!('IntersectionObserver'in window)||section.classList.contains('is-visible')){reveal(true);return;}section.dataset.tintEntrance='';observer=new IntersectionObserver(entries=>{if(entries.some(e=>e.isIntersecting))reveal();},{threshold:0,rootMargin:'0px 0px -8% 0px'});observer.observe(section.querySelector('.hx-tint__header'));});
 })();

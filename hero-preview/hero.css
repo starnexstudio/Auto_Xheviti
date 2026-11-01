@@ -1,6 +1,4 @@
-/* Auto Xheviti — isolated hero preview.
-   Every selector is prefixed .hx- and this file is only loaded by hero-preview/index.html,
-   so nothing here can reach the live site's style.css. */
+/* Auto Xheviti — shared production and review hero styles. */
 
 :root {
   --hx-paper: #F4F4F1;
@@ -28,7 +26,7 @@
     --hx-h: 740;
     --hx-nav-h: 72px;
     --hx-pad: 20px;
-    --u: min(calc(var(--hx-viewport-width, 100vw) / 390), calc(100svh / 740));
+    --u: min(calc(var(--hx-viewport-width, 100vw) / 390), calc(var(--hx-mobile-height, 100svh) / 740));
   }
 }
 
@@ -235,7 +233,7 @@ html { -webkit-text-size-adjust: 100%; }
     left: calc(var(--u) * 10);
     translate: none;
     top: calc(var(--u) * 150);
-    font-size: var(--hx-head-size, calc(var(--u) * 138));
+    font-size: calc(var(--u) * 148);
     white-space: normal;
   }
   .hx-headline__line { display: block; }
@@ -244,7 +242,13 @@ html { -webkit-text-size-adjust: 100%; }
   .hx-copy { left: calc(var(--u) * 20); top: calc(var(--u) * 488); gap: 14px; }
   .hx-copy__tagline { font-size: max(17px, calc(var(--u) * 20)); }
   .hx-indicator { top: max(calc(var(--u) * 620), calc(var(--u) * 488 + 110px)); }
+  .hx-js .hx-headline, .hx-js .hx-vehicle, .hx-js .hx-copy, .hx-js .hx-indicator { visibility: visible; }
+  .hx-car-loading .hx-vehicle { visibility: hidden; }
+  .hx-vehicle, .hx-vehicle__drive { backface-visibility: hidden; }
 }
+
+html:not(.hx-js) .hx-pin { height: auto; }
+html:not(.hx-js) .hx-sticky { position: relative; }
 
 .hx-after {
   margin: 0;

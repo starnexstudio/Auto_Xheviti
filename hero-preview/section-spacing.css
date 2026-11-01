@@ -37,8 +37,8 @@
 /* Fit the desktop hero to its composition instead of leaving empty viewport
    space underneath it on taller screens. Keep the full car departure range. */
 @media (min-width: 768px) {
-  .hx-transition-live .hx-sticky { height: min(100svh, 62.5vw); }
-  .hx-transition-live .hx-pin { height: calc(min(100svh, 62.5vw) + 91.2svh); }
+  .hx-sticky, .hx-transition-live .hx-sticky { height: min(100svh, 62.5vw); }
+  .hx-pin, .hx-transition-live .hx-pin { height: calc(min(100svh, 62.5vw) + 91.2svh); }
   .hx-copy { left: calc((100% - var(--hx-viewport-width, 100vw)) / 2 + var(--hx-content-inset)); }
 }
 
@@ -50,5 +50,9 @@
 
 @media (max-width: 767px) {
   :root { --hx-section-space: 40px; --hx-hero-gap: 16px; --hx-content-gutter: 20px; }
-  .hx-transition-live .hx-pin { height: calc(var(--u) * 740 + 91.2svh); }
+  .hx-pin, .hx-transition-live .hx-pin { height: calc(var(--u) * 740 + var(--hx-mobile-height, 100svh) * .76); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :root .hx-pin { height: auto; }
 }

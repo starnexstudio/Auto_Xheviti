@@ -19,6 +19,8 @@ The production page retains `#home` and `#galeri` aliases for incoming links and
 
 Run `python scripts/check-site.py` and `node --check` for the eight runtime JavaScript files in `hero-preview/`. There is no build step or dependency installation. Browser QA should cover desktop/mobile, native section links, album arrow-key focus, the five tint options and the enquiry form without submitting a message.
 
+Mobile hero starts immediately, with a fixed reversible tint/exit timeline and viewport geometry that does not follow browser toolbar height changes. Desktop retains its entrance and reduced motion remains static. The existing typefaces are served locally with their OFL licenses in `hero-preview/assets/fonts/`; optimized car/About images keep their original dimensions. The About section skips unchanged animation frames and initializes its reserved layout without waiting for photo decoding.
+
 The configured remote redirects to the existing `starnexstudio` repository; production deploys from `main` through GitHub Pages. Prepare a clean release commit from the production branch containing the approved site files, preserving the local design-review branch. Verify the deployment result and the public homepage after pushing.
 
 Stage the production page, robots/sitemap, CNAME, runtime `hero-preview/*.css` and `hero-preview/*.js`, both page HTML files, required assets, these notes and `scripts/check-site.py`. Exclude `.claude/`, the before-video, review-state JSON, `contact-review.html`, old verification fixtures and `hero-preview/qa/` screenshots from the release.

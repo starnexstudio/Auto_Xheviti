@@ -1,0 +1,15 @@
+/* Locally served Latin fonts include Albanian ë/ç. Licenses are in assets/fonts/. */
+@font-face {
+  font-family: "Big Shoulders Display";
+  font-style: normal;
+  font-weight: 800;
+  font-display: swap;
+  src: url("assets/fonts/big-shoulders-display-latin-800.woff2") format("woff2");
+}
+@font-face {
+  font-family: "Geist";
+  font-style: normal;
+  font-weight: 400 600;
+  font-display: swap;
+  src: url("assets/fonts/geist-latin-variable.woff2") format("woff2");
+}

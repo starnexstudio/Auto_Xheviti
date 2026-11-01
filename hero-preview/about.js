@@ -16,7 +16,7 @@
  const move = (n, x, y = 0) => { n.style.transform = `translate3d(${x.toFixed(3)}px,${y.toFixed(3)}px,0)`; };
  const mask = (n, x) => { n.style.clipPath = `inset(${(100 * (1 - x)).toFixed(3)}% 0 0 0)`; };
  const paragraphs = [...story.querySelectorAll('p')].map(node => ({node, text: node.textContent}));
- let lines = [], measureData, frame = 0, lastWidth = 0, lastHeight = 0, disposed = false;
+ let lines = [], measureData, frame = 0, lastWidth = 0, lastHeight = 0, disposed = false, renderedProgress = null;
  const restoreKey = 'ax-about-scroll:' + location.pathname;
  let restoredScroll = null;
  try {
@@ -54,6 +54,9 @@
   const m = measureData, distance = scrollY - m.start;
   const p = m.full ? clamp(distance / m.travel) : distance <= m.travel
    ? .48 * clamp(distance / m.travel) : .48 + .52 * clamp((distance - m.travel) / m.storyTravel);
+  const progress = p.toFixed(5);
+  if (progress === renderedProgress) return;
+  renderedProgress = progress;
   section.dataset.aboutProgress = p.toFixed(5);
   const a = ease(phase(p, 0, .08)), b = ease(phase(p, 0, .28));
   const d = ease(phase(p, .48, .75)), e = ease(phase(p, .75, .85));
@@ -86,6 +89,7 @@
  const requestRender = () => { if (!frame && !disposed) frame = requestAnimationFrame(render); };
  function measure() {
   if (disposed) return;
+  renderedProgress = null;
   const previous = measureData;
   const scrollBeforeMeasure = scrollY;
   if (previous) track.style.height = `${track.offsetHeight}px`;
@@ -122,7 +126,7 @@
   if (restoredScroll !== null) { scrollTo(0, restoredScroll); restoredScroll = null; }
   render();
  }
- function resize() { if (innerWidth !== lastWidth || Math.abs(innerHeight - lastHeight) > 80) measure(); else requestRender(); }
+ function resize() { if (innerWidth !== lastWidth || (innerWidth >= 768 && Math.abs(innerHeight - lastHeight) > 80)) measure(); else requestRender(); }
  function dispose() {
   disposed = true; cancelAnimationFrame(frame);
   window.removeEventListener('scroll', requestRender); window.removeEventListener('resize', resize);
@@ -144,5 +148,6 @@
   if (!event.persisted) dispose();
  }
  window.addEventListener('pagehide', onPageHide);
- Promise.all([document.fonts.ready, section.querySelector('img').decode().catch(() => {})]).then(measure);
+ // The photo has a reserved size; its network/decode time must not change the scroll scene later.
+ document.fonts.ready.then(measure);
 })();
