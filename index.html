@@ -16,44 +16,142 @@
   <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "AutomotiveBusiness",
-  "name": "Auto Xheviti",
-  "url": "https://www.autoxheviti.com/",
-  "logo": "https://www.autoxheviti.com/images/logo.png",
-  "image": "https://www.autoxheviti.com/images/auto-xheviti-car.webp",
-  "telephone": "+355692745532",
-  "email": "tarjaxhevit@gmail.com",
-  "description": "Xhama të zinj, llamba, ndërrim pjesësh dhe aksesorë për makina në Tiranë. Veshje sediljesh, vajra, zinxhirë dimri e aromatizues te Auto Xheviti.",
-  "address": {
-    "@type": "PostalAddress",
-    "streetAddress": "Rruga Kastriotët, Kthesa e Kamzës, ngjitur me karburant Coral",
-    "addressLocality": "Tiranë",
-    "addressCountry": "AL"
-  },
-  "areaServed": {
-    "@type": "City",
-    "name": "Tiranë"
-  },
-  "openingHoursSpecification": [
+  "@graph": [
     {
-      "@type": "OpeningHoursSpecification",
-      "dayOfWeek": [
-        "Monday",
-        "Tuesday",
-        "Wednesday",
-        "Thursday",
-        "Friday",
-        "Saturday"
+      "@type": "AutomotiveBusiness",
+      "name": "Auto Xheviti",
+      "url": "https://www.autoxheviti.com/",
+      "logo": "https://www.autoxheviti.com/images/logo.png",
+      "image": "https://www.autoxheviti.com/images/auto-xheviti-car.webp",
+      "telephone": "+355692745532",
+      "email": "tarjaxhevit@gmail.com",
+      "description": "Xhama të zinj, llamba, ndërrim pjesësh dhe aksesorë për makina në Tiranë. Veshje sediljesh, vajra, zinxhirë dimri e aromatizues te Auto Xheviti.",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Rruga Kastriotët, Kthesa e Kamzës, ngjitur me karburant Coral",
+        "addressLocality": "Tiranë",
+        "addressCountry": "AL"
+      },
+      "areaServed": {
+        "@type": "City",
+        "name": "Tiranë"
+      },
+      "openingHoursSpecification": [
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": [
+            "Monday",
+            "Tuesday",
+            "Wednesday",
+            "Thursday",
+            "Friday",
+            "Saturday"
+          ],
+          "opens": "07:30",
+          "closes": "18:00"
+        }
       ],
-      "opens": "07:30",
-      "closes": "18:00"
+      "sameAs": [
+        "https://www.facebook.com/autoxheviti/",
+        "https://www.instagram.com/auto_xheviti/"
+      ],
+      "@id": "https://www.autoxheviti.com/#business"
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://www.autoxheviti.com/#website",
+      "name": "Auto Xheviti",
+      "alternateName": [
+        "AutoXheviti",
+        "Auto Xheviti Tiranë"
+      ],
+      "url": "https://www.autoxheviti.com/",
+      "inLanguage": "sq-AL",
+      "publisher": {
+        "@id": "https://www.autoxheviti.com/#business"
+      }
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://www.autoxheviti.com/#faq",
+      "url": "https://www.autoxheviti.com/",
+      "inLanguage": "sq-AL",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Sa kushton errësimi i xhamave të makinës në Tiranë?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Çmimi për xhamat e zinj varet nga modeli i makinës, numri i xhamave që do të vishen dhe filmi i zgjedhur. Për një ofertë për makinën tuaj, na dërgoni në WhatsApp markën, modelin, vitin dhe cilët xhama dëshironi të errësoni. Kështu mund të sqarojmë shërbimin dhe çmimin përpara vizitës."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "A jepni certifikatë (leje) për xhamat e zinj?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Po. Pas përfundimit të shërbimit të errësimit të xhamave te Auto Xheviti, pajiseni me certifikatën përkatëse. Certifikata e xhamave të errësuar mbahet në makinë: kontrollohet nga Policia Rrugore dhe në kontrollin teknik, ndërsa makinat me xhama të errësuar pa certifikatë nuk e kalojnë kontrollin teknik. Përpara montimit, na kontaktoni për të sqaruar dokumentacionin që shoqëron shërbimin për makinën tuaj."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "A lejohen xhamat e zinj në Shqipëri dhe sa % lejohet?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Po, xhamat e zinj lejohen kur janë të certifikuar. Sipas rregullave të DPSHTRR (Udhëzimi nr. 5, datë 07.10.2019):• Xhami ballor nuk errësohet, përveç një rripi në pjesën e sipërme deri në 125 mm. • Xhamat anësorë të përparmë duhet të lejojnë të paktën 50% dritë (VLT), xhami origjinal dhe filmi së bashku. • Xhamat anësorë të pasmë dhe xhami i pasëm mund të errësohen deri në 10% VLT. • Nuk lejohen filmat me ngjyra të forta ose me efekt pasqyre. Rregullat mund të ndryshojnë, ndaj para montimit na pyesni për makinën tuaj."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Çfarë do të thotë VLT dhe cilën përqindje tint të zgjedh?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "VLT tregon përqindjen e dritës së dukshme që kalon përmes xhamit: një vlerë më e ulët do të thotë xham më i errët. Në krahasuesin më sipër mund të shihni një ilustrim të niveleve 70%, 50%, 35%, 20% dhe 5%. Mbani parasysh kufijtë ligjorë: të paktën 50% për xhamat anësorë të përparmë dhe deri në 10% për xhamat e pasmë. Na tregoni modelin e makinës dhe pamjen që kërkoni, që të diskutojmë zgjedhjen përpara montimit."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Sa zgjat vendosja e filmit për xhamat e makinës?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Koha e montimit varet nga modeli i automjetit dhe numri i xhamave që do të vishen. Kur na kontaktoni për rezervim, na tregoni makinën dhe shërbimin që kërkoni. Do të konfirmojmë orarin dhe një afat për punën, që të planifikoni vizitën tuaj."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Kur mund t’i ul ose t’i pastroj xhamat pas errësimit?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Pas vendosjes së filmit, ju japim udhëzimet për kohën e pritjes para uljes së xhamave dhe për mënyrën e pastrimit. Këto udhëzime varen nga filmi i montuar në makinën tuaj. Ndiqni këshillat që merrni pas shërbimit dhe na shkruani nëse keni paqartësi për kujdesin."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "A bëni ndërrim llambash dhe pjesësh makine në Tiranë?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Po. Ofrojmë ndërrim llambash, montim Xenon dhe ndërrime të tjera të pjesëve të makinës, sipas modelit dhe përputhshmërisë. Na tregoni markën, modelin, vitin dhe pjesën që kërkon ndërrim, që të konfirmojmë shërbimin dhe disponueshmërinë përpara vizitës."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Çfarë aksesorësh dhe produktesh për makina keni?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Në dyqan gjeni veshje sediljesh, vajra, zinxhirë dimri, aromatizues dhe aksesorë e produkte të tjera për makinën. Për një artikull të caktuar, na dërgoni emrin ose një foto. Për pjesë specifike, na tregoni edhe modelin dhe vitin e makinës për të konfirmuar disponueshmërinë dhe përputhshmërinë."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Ku ndodhet Auto Xheviti në Tiranë dhe si mund të rezervoj?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Na gjeni në Rrugën Kastriotët, te Kthesa e Kamzës, ngjitur me karburant Coral, Tiranë. Për të rezervuar, telefononi ose na shkruani në WhatsApp në +355 69 274 5532. Na tregoni modelin e makinës dhe shërbimin që kërkoni, që të konfirmojmë orarin përpara se të vini."
+          }
+        }
+      ]
     }
-  ],
-  "sameAs": [
-    "https://www.facebook.com/autoxheviti/",
-    "https://www.instagram.com/auto_xheviti/"
-  ],
-  "@id": "https://www.autoxheviti.com/#business"
+  ]
 }
   </script>
   <meta name="robots" content="index, follow">
@@ -393,32 +491,36 @@
             <div class="hx-faq__panel" id="faq-answer-01" role="region" aria-labelledby="faq-question-01"><div class="hx-faq__panel-inner"><div class="hx-faq__answer"><p>Çmimi për xhamat e zinj varet nga modeli i makinës, numri i xhamave që do të vishen dhe filmi i zgjedhur. Për një ofertë për makinën tuaj, na dërgoni në WhatsApp markën, modelin, vitin dhe cilët xhama dëshironi të errësoni. Kështu mund të sqarojmë shërbimin dhe çmimin përpara vizitës.</p></div></div></div>
           </article>
           <article class="hx-faq__item is-open" style="--faq-row: 1">
-            <h3><button class="hx-faq__button" type="button" id="faq-question-02" aria-expanded="true" aria-controls="faq-answer-02"><span class="hx-faq__index" aria-hidden="true">02</span><span class="hx-faq__question">A jepni certifikatë për xhamat e errësuar?</span><svg class="hx-faq__icon" width="32" height="32" viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h10"/><path class="hx-faq__icon-vertical" d="M8 3v10"/></svg></button></h3>
-            <div class="hx-faq__panel" id="faq-answer-02" role="region" aria-labelledby="faq-question-02"><div class="hx-faq__panel-inner"><div class="hx-faq__answer"><p>Po. Pas përfundimit të shërbimit të errësimit të xhamave te Auto Xheviti, pajiseni me certifikatën përkatëse. Përpara montimit, na kontaktoni për të sqaruar dokumentacionin që shoqëron shërbimin për makinën tuaj.</p></div></div></div>
+            <h3><button class="hx-faq__button" type="button" id="faq-question-02" aria-expanded="true" aria-controls="faq-answer-02"><span class="hx-faq__index" aria-hidden="true">02</span><span class="hx-faq__question">A jepni certifikatë (leje) për xhamat e zinj?</span><svg class="hx-faq__icon" width="32" height="32" viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h10"/><path class="hx-faq__icon-vertical" d="M8 3v10"/></svg></button></h3>
+            <div class="hx-faq__panel" id="faq-answer-02" role="region" aria-labelledby="faq-question-02"><div class="hx-faq__panel-inner"><div class="hx-faq__answer"><p>Po. Pas përfundimit të shërbimit të errësimit të xhamave te Auto Xheviti, pajiseni me certifikatën përkatëse. Certifikata e xhamave të errësuar mbahet në makinë: kontrollohet nga Policia Rrugore dhe në kontrollin teknik, ndërsa makinat me xhama të errësuar pa certifikatë nuk e kalojnë kontrollin teknik. Përpara montimit, na kontaktoni për të sqaruar dokumentacionin që shoqëron shërbimin për makinën tuaj.</p></div></div></div>
           </article>
           <article class="hx-faq__item is-open" style="--faq-row: 2">
-            <h3><button class="hx-faq__button" type="button" id="faq-question-03" aria-expanded="true" aria-controls="faq-answer-03"><span class="hx-faq__index" aria-hidden="true">03</span><span class="hx-faq__question">Çfarë do të thotë VLT dhe cilën përqindje tint të zgjedh?</span><svg class="hx-faq__icon" width="32" height="32" viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h10"/><path class="hx-faq__icon-vertical" d="M8 3v10"/></svg></button></h3>
-            <div class="hx-faq__panel" id="faq-answer-03" role="region" aria-labelledby="faq-question-03"><div class="hx-faq__panel-inner"><div class="hx-faq__answer"><p>VLT tregon përqindjen e dritës së dukshme që kalon përmes xhamit: një vlerë më e ulët do të thotë xham më i errët. Në krahasuesin më sipër mund të shihni një ilustrim të niveleve 70%, 50%, 35%, 20% dhe 5%. Na tregoni modelin e makinës dhe pamjen që kërkoni, që të diskutojmë zgjedhjen përpara montimit.</p></div></div></div>
+            <h3><button class="hx-faq__button" type="button" id="faq-question-03" aria-expanded="true" aria-controls="faq-answer-03"><span class="hx-faq__index" aria-hidden="true">03</span><span class="hx-faq__question">A lejohen xhamat e zinj në Shqipëri dhe sa % lejohet?</span><svg class="hx-faq__icon" width="32" height="32" viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h10"/><path class="hx-faq__icon-vertical" d="M8 3v10"/></svg></button></h3>
+            <div class="hx-faq__panel" id="faq-answer-03" role="region" aria-labelledby="faq-question-03"><div class="hx-faq__panel-inner"><div class="hx-faq__answer"><p>Po, xhamat e zinj lejohen kur janë të certifikuar. Sipas rregullave të DPSHTRR (Udhëzimi nr. 5, datë 07.10.2019):</p><ul><li><strong>Xhami ballor</strong> nuk errësohet, përveç një rripi në pjesën e sipërme deri në 125 mm.</li><li><strong>Xhamat anësorë të përparmë</strong> duhet të lejojnë të paktën <strong>50%</strong> dritë (VLT), xhami origjinal dhe filmi së bashku.</li><li><strong>Xhamat anësorë të pasmë dhe xhami i pasëm</strong> mund të errësohen deri në <strong>10%</strong> VLT.</li><li>Nuk lejohen filmat me ngjyra të forta ose me efekt pasqyre.</li></ul><p>Rregullat mund të ndryshojnë, ndaj para montimit na pyesni për makinën tuaj.</p></div></div></div>
           </article>
           <article class="hx-faq__item is-open" style="--faq-row: 3">
-            <h3><button class="hx-faq__button" type="button" id="faq-question-04" aria-expanded="true" aria-controls="faq-answer-04"><span class="hx-faq__index" aria-hidden="true">04</span><span class="hx-faq__question">Sa zgjat vendosja e filmit për xhamat e makinës?</span><svg class="hx-faq__icon" width="32" height="32" viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h10"/><path class="hx-faq__icon-vertical" d="M8 3v10"/></svg></button></h3>
-            <div class="hx-faq__panel" id="faq-answer-04" role="region" aria-labelledby="faq-question-04"><div class="hx-faq__panel-inner"><div class="hx-faq__answer"><p>Koha e montimit varet nga modeli i automjetit dhe numri i xhamave që do të vishen. Kur na kontaktoni për rezervim, na tregoni makinën dhe shërbimin që kërkoni. Do të konfirmojmë orarin dhe një afat për punën, që të planifikoni vizitën tuaj.</p></div></div></div>
+            <h3><button class="hx-faq__button" type="button" id="faq-question-04" aria-expanded="true" aria-controls="faq-answer-04"><span class="hx-faq__index" aria-hidden="true">04</span><span class="hx-faq__question">Çfarë do të thotë VLT dhe cilën përqindje tint të zgjedh?</span><svg class="hx-faq__icon" width="32" height="32" viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h10"/><path class="hx-faq__icon-vertical" d="M8 3v10"/></svg></button></h3>
+            <div class="hx-faq__panel" id="faq-answer-04" role="region" aria-labelledby="faq-question-04"><div class="hx-faq__panel-inner"><div class="hx-faq__answer"><p>VLT tregon përqindjen e dritës së dukshme që kalon përmes xhamit: një vlerë më e ulët do të thotë xham më i errët. Në krahasuesin më sipër mund të shihni një ilustrim të niveleve 70%, 50%, 35%, 20% dhe 5%. Mbani parasysh kufijtë ligjorë: të paktën 50% për xhamat anësorë të përparmë dhe deri në 10% për xhamat e pasmë. Na tregoni modelin e makinës dhe pamjen që kërkoni, që të diskutojmë zgjedhjen përpara montimit.</p></div></div></div>
           </article>
           <article class="hx-faq__item is-open" style="--faq-row: 4">
-            <h3><button class="hx-faq__button" type="button" id="faq-question-05" aria-expanded="true" aria-controls="faq-answer-05"><span class="hx-faq__index" aria-hidden="true">05</span><span class="hx-faq__question">Kur mund t’i ul ose t’i pastroj xhamat pas errësimit?</span><svg class="hx-faq__icon" width="32" height="32" viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h10"/><path class="hx-faq__icon-vertical" d="M8 3v10"/></svg></button></h3>
-            <div class="hx-faq__panel" id="faq-answer-05" role="region" aria-labelledby="faq-question-05"><div class="hx-faq__panel-inner"><div class="hx-faq__answer"><p>Pas vendosjes së filmit, ju japim udhëzimet për kohën e pritjes para uljes së xhamave dhe për mënyrën e pastrimit. Këto udhëzime varen nga filmi i montuar në makinën tuaj. Ndiqni këshillat që merrni pas shërbimit dhe na shkruani nëse keni paqartësi për kujdesin.</p></div></div></div>
+            <h3><button class="hx-faq__button" type="button" id="faq-question-05" aria-expanded="true" aria-controls="faq-answer-05"><span class="hx-faq__index" aria-hidden="true">05</span><span class="hx-faq__question">Sa zgjat vendosja e filmit për xhamat e makinës?</span><svg class="hx-faq__icon" width="32" height="32" viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h10"/><path class="hx-faq__icon-vertical" d="M8 3v10"/></svg></button></h3>
+            <div class="hx-faq__panel" id="faq-answer-05" role="region" aria-labelledby="faq-question-05"><div class="hx-faq__panel-inner"><div class="hx-faq__answer"><p>Koha e montimit varet nga modeli i automjetit dhe numri i xhamave që do të vishen. Kur na kontaktoni për rezervim, na tregoni makinën dhe shërbimin që kërkoni. Do të konfirmojmë orarin dhe një afat për punën, që të planifikoni vizitën tuaj.</p></div></div></div>
           </article>
           <article class="hx-faq__item is-open" style="--faq-row: 5">
-            <h3><button class="hx-faq__button" type="button" id="faq-question-06" aria-expanded="true" aria-controls="faq-answer-06"><span class="hx-faq__index" aria-hidden="true">06</span><span class="hx-faq__question">A bëni ndërrim llambash dhe pjesësh makine në Tiranë?</span><svg class="hx-faq__icon" width="32" height="32" viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h10"/><path class="hx-faq__icon-vertical" d="M8 3v10"/></svg></button></h3>
-            <div class="hx-faq__panel" id="faq-answer-06" role="region" aria-labelledby="faq-question-06"><div class="hx-faq__panel-inner"><div class="hx-faq__answer"><p>Po. Ofrojmë ndërrim llambash, montim Xenon dhe ndërrime të tjera të pjesëve të makinës, sipas modelit dhe përputhshmërisë. Na tregoni markën, modelin, vitin dhe pjesën që kërkon ndërrim, që të konfirmojmë shërbimin dhe disponueshmërinë përpara vizitës.</p></div></div></div>
+            <h3><button class="hx-faq__button" type="button" id="faq-question-06" aria-expanded="true" aria-controls="faq-answer-06"><span class="hx-faq__index" aria-hidden="true">06</span><span class="hx-faq__question">Kur mund t’i ul ose t’i pastroj xhamat pas errësimit?</span><svg class="hx-faq__icon" width="32" height="32" viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h10"/><path class="hx-faq__icon-vertical" d="M8 3v10"/></svg></button></h3>
+            <div class="hx-faq__panel" id="faq-answer-06" role="region" aria-labelledby="faq-question-06"><div class="hx-faq__panel-inner"><div class="hx-faq__answer"><p>Pas vendosjes së filmit, ju japim udhëzimet për kohën e pritjes para uljes së xhamave dhe për mënyrën e pastrimit. Këto udhëzime varen nga filmi i montuar në makinën tuaj. Ndiqni këshillat që merrni pas shërbimit dhe na shkruani nëse keni paqartësi për kujdesin.</p></div></div></div>
           </article>
           <article class="hx-faq__item is-open" style="--faq-row: 6">
-            <h3><button class="hx-faq__button" type="button" id="faq-question-07" aria-expanded="true" aria-controls="faq-answer-07"><span class="hx-faq__index" aria-hidden="true">07</span><span class="hx-faq__question">Çfarë aksesorësh dhe produktesh për makina keni?</span><svg class="hx-faq__icon" width="32" height="32" viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h10"/><path class="hx-faq__icon-vertical" d="M8 3v10"/></svg></button></h3>
-            <div class="hx-faq__panel" id="faq-answer-07" role="region" aria-labelledby="faq-question-07"><div class="hx-faq__panel-inner"><div class="hx-faq__answer"><p>Në dyqan gjeni veshje sediljesh, vajra, zinxhirë dimri, aromatizues dhe aksesorë e produkte të tjera për makinën. Për një artikull të caktuar, na dërgoni emrin ose një foto. Për pjesë specifike, na tregoni edhe modelin dhe vitin e makinës për të konfirmuar disponueshmërinë dhe përputhshmërinë.</p></div></div></div>
+            <h3><button class="hx-faq__button" type="button" id="faq-question-07" aria-expanded="true" aria-controls="faq-answer-07"><span class="hx-faq__index" aria-hidden="true">07</span><span class="hx-faq__question">A bëni ndërrim llambash dhe pjesësh makine në Tiranë?</span><svg class="hx-faq__icon" width="32" height="32" viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h10"/><path class="hx-faq__icon-vertical" d="M8 3v10"/></svg></button></h3>
+            <div class="hx-faq__panel" id="faq-answer-07" role="region" aria-labelledby="faq-question-07"><div class="hx-faq__panel-inner"><div class="hx-faq__answer"><p>Po. Ofrojmë ndërrim llambash, montim Xenon dhe ndërrime të tjera të pjesëve të makinës, sipas modelit dhe përputhshmërisë. Na tregoni markën, modelin, vitin dhe pjesën që kërkon ndërrim, që të konfirmojmë shërbimin dhe disponueshmërinë përpara vizitës.</p></div></div></div>
           </article>
           <article class="hx-faq__item is-open" style="--faq-row: 7">
-            <h3><button class="hx-faq__button" type="button" id="faq-question-08" aria-expanded="true" aria-controls="faq-answer-08"><span class="hx-faq__index" aria-hidden="true">08</span><span class="hx-faq__question">Ku ndodhet Auto Xheviti në Tiranë dhe si mund të rezervoj?</span><svg class="hx-faq__icon" width="32" height="32" viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h10"/><path class="hx-faq__icon-vertical" d="M8 3v10"/></svg></button></h3>
-            <div class="hx-faq__panel" id="faq-answer-08" role="region" aria-labelledby="faq-question-08"><div class="hx-faq__panel-inner"><div class="hx-faq__answer"><p>Na gjeni në Rrugën Kastriotët, te Kthesa e Kamzës, ngjitur me karburant Coral, Tiranë. Për të rezervuar, telefononi ose na shkruani në WhatsApp në +355 69 274 5532. Na tregoni modelin e makinës dhe shërbimin që kërkoni, që të konfirmojmë orarin përpara se të vini.</p></div></div></div>
+            <h3><button class="hx-faq__button" type="button" id="faq-question-08" aria-expanded="true" aria-controls="faq-answer-08"><span class="hx-faq__index" aria-hidden="true">08</span><span class="hx-faq__question">Çfarë aksesorësh dhe produktesh për makina keni?</span><svg class="hx-faq__icon" width="32" height="32" viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h10"/><path class="hx-faq__icon-vertical" d="M8 3v10"/></svg></button></h3>
+            <div class="hx-faq__panel" id="faq-answer-08" role="region" aria-labelledby="faq-question-08"><div class="hx-faq__panel-inner"><div class="hx-faq__answer"><p>Në dyqan gjeni veshje sediljesh, vajra, zinxhirë dimri, aromatizues dhe aksesorë e produkte të tjera për makinën. Për një artikull të caktuar, na dërgoni emrin ose një foto. Për pjesë specifike, na tregoni edhe modelin dhe vitin e makinës për të konfirmuar disponueshmërinë dhe përputhshmërinë.</p></div></div></div>
+          </article>
+          <article class="hx-faq__item is-open" style="--faq-row: 8">
+            <h3><button class="hx-faq__button" type="button" id="faq-question-09" aria-expanded="true" aria-controls="faq-answer-09"><span class="hx-faq__index" aria-hidden="true">09</span><span class="hx-faq__question">Ku ndodhet Auto Xheviti në Tiranë dhe si mund të rezervoj?</span><svg class="hx-faq__icon" width="32" height="32" viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h10"/><path class="hx-faq__icon-vertical" d="M8 3v10"/></svg></button></h3>
+            <div class="hx-faq__panel" id="faq-answer-09" role="region" aria-labelledby="faq-question-09"><div class="hx-faq__panel-inner"><div class="hx-faq__answer"><p>Na gjeni në Rrugën Kastriotët, te Kthesa e Kamzës, ngjitur me karburant Coral, Tiranë. Për të rezervuar, telefononi ose na shkruani në WhatsApp në +355 69 274 5532. Na tregoni modelin e makinës dhe shërbimin që kërkoni, që të konfirmojmë orarin përpara se të vini.</p></div></div></div>
           </article>
         </div>
       </div>

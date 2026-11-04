@@ -51,8 +51,17 @@ for filename in ("index.html", "hero-preview/index.html"):
     assert meta.get("robots") == expected_robots, f"{filename}: unexpected indexing policy"
     assert [a["href"] for tag, a in page.nodes
             if tag == "link" and a.get("rel") == "canonical"] == [canonical]
-    assert len(page.schema) == 1 and page.schema[0]["url"] == canonical
-    assert page.schema[0]["telephone"] == "+355692745532"
+    assert len(page.schema) == 1
+    # One block: either the business itself or a @graph that contains it.
+    nodes = page.schema[0].get("@graph", [page.schema[0]])
+    business = next(n for n in nodes if n.get("@type") == "AutomotiveBusiness")
+    assert business["url"] == canonical and business["telephone"] == "+355692745532"
+    for node in nodes:
+        if node.get("@type") == "WebSite":
+            assert node["name"] == "Auto Xheviti" and node["url"] == canonical
+        if node.get("@type") == "FAQPage":
+            questions = [n["name"] for n in node["mainEntity"]]
+            assert questions and all(q in page.path.read_text(encoding="utf-8") for q in questions)
     sections = [a.get("id") for tag, a in page.nodes if tag == "section"]
     assert sections[:4] == ["hxPin", "rreth", "sherbime", "punime"], sections
     if filename == "index.html":
